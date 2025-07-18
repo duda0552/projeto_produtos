@@ -37,21 +37,21 @@ if (isset($_SESSION['nome'])){
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
         if (isset($_GET['p'])) {
             if ($_GET['p'] == 'novo' || $_GET['p'] == 'inserir') {//Se p=novo ou p=inserir
-                include 'adicionar_produto.php'; //chama o arquivo adicionar produto
+                include 'functions/adicionar_produto.php'; //chama o arquivo adicionar produto
             } elseif ($_GET['p'] == 'editar' || $_GET['p'] == 'salvar') {//Se p=editar ou p=salvar
-            include 'editar.php'; //chama o arquivo editar
+            include 'functions/editar.php'; //chama o arquivo editar
             } elseif ($_GET['p'] == 'excluir') { //Se p=excluir
-            include 'excluir.php'; //chama o arquivo excluir
+            include 'functions/excluir.php'; //chama o arquivo excluir
             } elseif ($_GET['p'] == 'sair') {
             session_unset(); //apaga os dados armazenados na sessão
             session_destroy(); //exclui a sessão
             header('Location: index.php'); //inclui a página evitando duplicação
             exit(); // importante para interromper a execução
             } else {
-            include 'list.php'; // se o parâmetro "p" tiver outro valor
+            include 'functions/list.php'; // se o parâmetro "p" tiver outro valor
         }
         } else {
-        include 'list.php'; // se "p" não estiver definido chama o arquivo listar
+        include 'functions/list.php'; // se "p" não estiver definido chama o arquivo listar
         }   
     } else {
     include 'login.php'; //chama o arquivo login
